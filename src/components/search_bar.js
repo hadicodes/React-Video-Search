@@ -4,10 +4,8 @@ import React, { Component } from "react";
 class SearchBar extends Component {
   render() {
     // returns an input box with an event handler attached that watches and runs the oninputchange func
-    return <input onChange={(event) => console.log(event.target.value)} />;
+    return <input onChange={event => console.log(event.target.value)} />;
   }
-
-  
 }
 
 export default SearchBar;
