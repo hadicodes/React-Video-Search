@@ -1,10 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 
-const SearchBar = () => {
-  return <input />;
-};
+// define a new class called Searchbar and give it all the functionality of React.Component
+class SearchBar extends Component {
+  render() {
+    // returns an input box with an event handler attached that watches and runs the oninputchange func
+    return <input onChange={(event) => console.log(event.target.value)} />;
+  }
 
-
-
+  
+}
 
 export default SearchBar;
