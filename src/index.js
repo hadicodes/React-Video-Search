@@ -13,12 +13,16 @@ class App extends Component {
     super(props);
 
     this.state = {
-      videos: []
+      videos: [],
+      selectedVideo: null
     };
-
+    // Youtube search using term provided and the youtube npm pkg
     YTSearch({ key: API_KEY, term: "Travel Guide" }, videos => {
       // console.log(videos);
-      this.setState({ videos: videos });
+      this.setState({
+        videos: videos,
+        selectedVideo: videos[0]
+      });
     });
   }
 
@@ -26,9 +30,10 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
-        <VideoDetail video={this.state.videos[0]} />
-        <VideoList videos={this.state.videos} />
-
+        <VideoDetail video={this.state.selectedVideo} />
+        <VideoList
+          onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })}  
+          videos={this.state.videos} />
       </div>
     );
   }
