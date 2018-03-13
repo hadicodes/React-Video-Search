@@ -12,7 +12,7 @@ class SearchBar extends Component {
   render() {
     // returns an input box with an event handler attached that watches for text changes on the input
     return (
-      <div>
+      <div className="search-bar">
         <input
           value = {this.state.term}  
           onChange={(event) => this.setState({ term: event.target.value })} />
